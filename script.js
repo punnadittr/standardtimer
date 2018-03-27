@@ -5,7 +5,7 @@ const resetButton = document.querySelector('.reset');
 const mainSlider = document.querySelector('.slider');
 const pomodoro = document.querySelector('.pomodoro');
 
-const ding = new Audio('ding.wav');
+const ding = new Audio('ding.mp3');
 const title = document.querySelector('title');
 
 let clickedStart = false;
@@ -69,17 +69,17 @@ function countDown() {
     ding.play();
     clickedStart = true;
   }
-    title.textContent = mainMinutes + ':' + mainSeconds + ' Pomodoro Timer';
-    timer.textContent = mainMinutes + ':' + mainSeconds;
+  title.textContent = mainMinutes + ':' + mainSeconds + ' Pomodoro Timer';
+  timer.textContent = mainMinutes + ':' + mainSeconds;
 };
 
-startButton.addEventListener('click', function() {
+startButton.addEventListener('click', function () {
   countTime(countDown);
 });
 pauseButton.addEventListener('click', pause);
 resetButton.addEventListener('click', reset);
 
-mainSlider.addEventListener('input', function(e) {
+mainSlider.addEventListener('input', function (e) {
   timer.classList.remove('short-break-display', 'long-break-display');
   setTime(e.target.value, mainMinutes, mainSeconds, pomodoro);
 });
